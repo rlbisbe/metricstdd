@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "metricstdd-lib.mono", "metricstdd-lib.mono\metricstdd-lib.mono.csproj", "{C4AFA7D8-2991-4F43-A423-82C8C63CD6ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "metricstdd-tests.mono", "metricstdd-tests.mono\metricstdd-tests.mono.csproj", "{A528852E-D4FE-489A-B711-B60AF2DAE352}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A528852E-D4FE-489A-B711-B60AF2DAE352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A528852E-D4FE-489A-B711-B60AF2DAE352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A528852E-D4FE-489A-B711-B60AF2DAE352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A528852E-D4FE-489A-B711-B60AF2DAE352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4AFA7D8-2991-4F43-A423-82C8C63CD6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4AFA7D8-2991-4F43-A423-82C8C63CD6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4AFA7D8-2991-4F43-A423-82C8C63CD6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4AFA7D8-2991-4F43-A423-82C8C63CD6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = metricstdd-lib.mono\metricstdd-lib.mono.csproj
+	EndGlobalSection
+EndGlobal
