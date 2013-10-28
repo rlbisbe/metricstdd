@@ -9,9 +9,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>metricstddtests.mono</RootNamespace>
     <AssemblyName>metricstdd-tests.mono</AssemblyName>
-	<RestorePackages>true</RestorePackages>
-
-	</PropertyGroup>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -31,13 +30,13 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-  <Reference Include="Moq">
-      <HintPath>..\packages\Moq.4.1.1309.1617\lib\net40\Moq.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.1.1309.1617\lib\net40\Moq.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,5 +50,8 @@
       <Project>{C4AFA7D8-2991-4F43-A423-82C8C63CD6ED}</Project>
       <Name>metricstdd-lib.mono</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
