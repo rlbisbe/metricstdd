@@ -1,0 +1,29 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\Roberto\Documents\Visual Studio 2013\Projects\metricstdd\metricstdd-tests\WidgetTest.cs">
+    <Files>
+      <File FileName="c:\Users\Roberto\Documents\Visual Studio 2013\Projects\metricstdd\metricstdd-tests\WidgetTest.cs" Line="18" Column="44" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="metricstdd-lib.mono" expanded="True" />
+          <Node name="metricstdd-tests.mono" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Properties" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
