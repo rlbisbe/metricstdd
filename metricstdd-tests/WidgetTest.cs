@@ -1,0 +1,82 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NUnit.Framework;
+using metricstdd;
+using Moq;
+using metricstdd_lib;
+
+namespace metricstddtest
+{
+    public class UnitTest1
+    {
+        [Test]
+        public void ShouldHaveSelectedFields()
+        {
+            var service = new Mock<IWidgetService>();
+            service.Setup(s => s.GetNumberFromCache())
+                .Returns(new CachedNumber());
+            var widget = new Widget(service.Object);
+            widget.Init();
+
+            widget.AddField("URL", string.Empty);
+            widget.AddField("Options", "Likes", "People talking about");
+
+            var fields = widget.GetFields();
+            Assert.AreEqual(2, fields.Count);
+        }
+        
+        [Test]
+        public void ShouldOnlyCallCache()
+        {
+            var service = new Mock<IWidgetService>();
+            service.Setup(s => s.GetNumberFromCache())
+                .Returns(new CachedNumber());
+            var widget = new Widget(service.Object);
+            widget.Init();
+            service.Verify(s => s.GetNumberFromCache());
+            service.Verify(s => s.GetNumber(), Times.Never);
+        }
+
+        [Test]
+        public void ShouldCallCacheBeforeUpdating()
+        {
+            var service = new Mock<IWidgetService>();
+            service.Setup(s => s.GetNumberFromCache())
+                .Returns(new CachedNumber());
+            var widget = new Widget(service.Object);
+            widget.Init();
+            service.Verify(s => s.GetNumberFromCache());
+            widget.Update();
+            service.Verify(s => s.GetNumber());
+        }
+
+        [Test]
+        public void UpdateTimeShouldBeUpdatedIfGetNumberIsSuccesful()
+        {
+            var service = new Mock<IWidgetService>();
+            service.Setup(s => s.GetNumberFromCache())
+                .Returns(new CachedNumber() { Value = 10, UpdatedAt = new DateTime(2012,01,01) });
+            var widget = new Widget(service.Object);
+            widget.Init();
+            var updateDate = widget.UpdatedAt;
+            widget.Update();
+            service.Verify(s => s.GetNumber());
+            var updateDateAfterUpdate = widget.UpdatedAt;
+            Assert.AreNotEqual(updateDate, updateDateAfterUpdate);
+        }
+
+        [Test]
+        public void UpdateTimeShouldHandleExceptionFromCache()
+        {
+            var service = new Mock<IWidgetService>();
+            service.Setup(s => s.GetNumberFromCache()).Throws(new KeyNotFoundException());
+            var widget = new Widget(service.Object);
+            widget.Init();
+            service.Verify(s => s.GetNumberFromCache());
+            widget.Update();
+            service.Verify(s => s.GetNumberFromCache());
+        }
+    }
+}
