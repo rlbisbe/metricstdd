@@ -12,4 +12,4 @@ before_install:
 
 script:
  - xbuild metricstdd.mono.sln
- - .ci/nunit.sh metricstdd-tests/bin/Debug/metricstdd_tests.dll
+ - .ci/nunit.sh metricstdd-tests.mono/bin/Debug/metricstdd-tests.mono.dll
