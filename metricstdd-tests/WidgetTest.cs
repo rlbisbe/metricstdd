@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using metricstdd;
 using Moq;
-using metricstdd_lib;
+using metricstddlib;
 
 namespace metricstddtest
 {
-    public class UnitTest1
+    public class WidgetTest
     {
         [Test]
         public void ShouldHaveSelectedFields()
@@ -77,6 +76,27 @@ namespace metricstddtest
             service.Verify(s => s.GetNumberFromCache());
             widget.Update();
             service.Verify(s => s.GetNumberFromCache());
+        }
+
+        [Test]
+        public void ShouldReturnItJsonSerialized()
+        {
+            var service = new Mock<IWidgetService>();
+            service.Setup(s => s.GetNumberFromCache()).Throws(new KeyNotFoundException());
+            var widget = new Widget(service.Object);
+            widget.Init();
+
+            var result = widget.GetSerializedAsString();
+            Assert.IsNotNullOrEmpty(result);
+        }
+
+        [Test]
+        public void ShouldGenerateWidgetFromString()
+        {
+            var service = new Mock<IWidgetService>();
+            var serialized = "{\"Number\": \"0\" }";
+            var widget = Widget.FromString(service.Object, serialized);
+            Assert.IsNotNull(widget);
         }
     }
 }

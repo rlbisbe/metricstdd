@@ -1,8 +1,8 @@
-﻿using metricstdd_lib;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
-namespace metricstdd
+namespace metricstddlib
 {
     public class Widget
     {
@@ -63,5 +63,19 @@ namespace metricstdd
 
         private Dictionary<string, string[]> _fields;
 
+
+        public string GetSerializedAsString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+
+        public static Widget FromString(IWidgetService service, string serialized)
+        {
+            var widget = JsonConvert.DeserializeObject<Widget>(serialized);
+            if (widget != null)
+                widget._widgetService = service;   
+            
+            return widget;
+        }
     }
 }
