@@ -87,7 +87,7 @@ namespace metricstddtest
             widget.Init();
 
             var result = widget.GetSerializedAsString();
-            Assert.IsNotNullOrEmpty(result);
+            Assert.IsNotNull(result);
         }
 
         [Test]
